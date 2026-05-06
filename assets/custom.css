@@ -1,0 +1,38 @@
+/* code cleanup for Faouzia Music initial theme design */
+header {
+    display: none !important;
+}
+
+/* Tour Dates */
+
+.tour-dates h2 {
+    text-align: center;
+}
+
+.tour-dates__container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-transform: uppercase;
+}
+
+.tour-date__info {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr auto;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+}
+
+.faouzia-button {
+    padding: 0.5rem 1rem;
+    text-transform: uppercase;
+    max-width: max-content;
+}
+
+@media screen and (max-width: 768px) {
+    .tour-date__info {
+        grid-template-columns: 1fr;
+    }
+}
+
