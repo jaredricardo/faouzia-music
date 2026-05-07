@@ -1,12 +1,17 @@
 /* code cleanup for Faouzia Music initial theme design */
-header {
+header-actions {
     display: none !important;
 }
 
 /* Tour Dates */
 
+.tour-dates {
+    font-family: 'TayBigBird', sans-serif;
+}
+
 .tour-dates h2 {
     text-align: center;
+    font-family: 'TayBigBird', sans-serif;
 }
 
 .tour-dates__container {
@@ -14,6 +19,9 @@ header {
     flex-direction: column;
     width: 100%;
     text-transform: uppercase;
+    max-width: 1024px;
+    margin: 0 auto;
+    font-size: 20px;
 }
 
 .tour-date__info {
@@ -25,14 +33,93 @@ header {
 }
 
 .faouzia-button {
-    padding: 0.5rem 1rem;
+    padding: 0.75rem 1.25rem;
     text-transform: uppercase;
     max-width: max-content;
+    line-height: 1;
 }
 
-@media screen and (max-width: 768px) {
+.faouzia-button:hover {
+   opacity: 0.8;
+}
+
+/* Tour Dates — 1280px+ */
+@media screen and (min-width: 1280px) {
+    .tour-dates__container {
+        font-size: 20px;
+        max-width: 1100px;
+    }
+
+    .tour-dates h2 {
+        font-size: 3rem;
+        margin-bottom: 2rem;
+    }
+
+    .faouzia-button {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.875rem;
+    }
+}
+
+/* Tour Dates — 1024px to 1280px */
+@media screen and (min-width: 1024px) and (max-width: 1279px) {
+    .tour-dates__container {
+        font-size: 17px;
+        max-width: 900px;
+    }
+
+    .tour-dates h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1.75rem;
+    }
+
+    .faouzia-button {
+        padding: 0.65rem 1.25rem;
+        font-size: 0.8125rem;
+    }
+}
+
+/* Tour Dates — 761px to 1024px */
+@media screen and (min-width: 761px) and (max-width: 1023px) {
+    .tour-dates__container {
+        font-size: 15px;
+        max-width: 720px;
+    }
+
+    .tour-dates h2 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .faouzia-button {
+        padding: 0.6rem 1rem;
+        font-size: 0.75rem;
+    }
+}
+
+/* Tour Dates — 561px and below */
+@media screen and (max-width: 760px) {
+    .tour-dates__container {
+        font-size: 14px;
+    }
+
+    .tour-dates h2 {
+        font-size: 1.75rem;
+        margin-bottom: 1.25rem;
+    }
+
     .tour-date__info {
         grid-template-columns: 1fr;
+        gap: 0.5rem;
+        padding: 1rem 0;
+    }
+
+    .faouzia-button {
+        padding: 0.6rem 1.25rem;
+        font-size: 0.75rem;
+        width: 100%;
+        max-width: 100%;
+        text-align: center;
     }
 }
 

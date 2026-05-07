@@ -14,12 +14,12 @@
       "name": "t:names.hero",
       "settings": {
         "media_type_1": "image",
-        "image_1": "shopify://shop_images/Screenshot_2026-05-06_at_2.54.34_AM.png",
+        "image_1": "shopify://shop_images/faouzia_wide.png",
         "media_type_2": "image",
         "stack_media_on_mobile": false,
         "custom_mobile_media": true,
         "media_type_1_mobile": "image",
-        "image_1_mobile": "shopify://shop_images/Screenshot_2026-05-06_at_2.56.56_AM.png",
+        "image_1_mobile": "shopify://shop_images/faouzia_wide_2x_1bdd1aa2-c991-4c07-8f88-963597b74bf8.png",
         "media_type_2_mobile": "image",
         "link": "",
         "open_in_new_tab": false,
@@ -52,6 +52,7 @@
           "type": "tour_date",
           "settings": {
             "date": "January 01, 2026",
+            "date_iso": "2026-01-01",
             "venue_name": "Hammerstein Ballroom",
             "city": "New York, NY",
             "url": ""
@@ -61,6 +62,7 @@
           "type": "tour_date",
           "settings": {
             "date": "January 01, 2026",
+            "date_iso": "2026-01-01",
             "venue_name": "Hammerstein Ballroom",
             "city": "New York, NY",
             "url": ""
@@ -70,6 +72,7 @@
           "type": "tour_date",
           "settings": {
             "date": "January 01, 2026",
+            "date_iso": "2026-01-01",
             "venue_name": "Hammerstein Ballroom",
             "city": "New York, NY",
             "url": ""
@@ -79,6 +82,7 @@
           "type": "tour_date",
           "settings": {
             "date": "January 01, 2026",
+            "date_iso": "2026-01-01",
             "venue_name": "Hammerstein Ballroom",
             "city": "New York, NY",
             "url": ""
@@ -88,6 +92,7 @@
           "type": "tour_date",
           "settings": {
             "date": "January 01, 2026",
+            "date_iso": "2026-01-01",
             "venue_name": "Hammerstein Ballroom",
             "city": "New York, NY",
             "url": ""
@@ -97,6 +102,7 @@
           "type": "tour_date",
           "settings": {
             "date": "January 01, 2026",
+            "date_iso": "2026-01-01",
             "venue_name": "Hammerstein Ballroom",
             "city": "New York, NY",
             "url": ""
@@ -115,10 +121,13 @@
       "settings": {
         "section_anchor_id": "",
         "bg_color": "#000000",
+        "text_color": "#ffffff",
         "header": "Tour Dates",
         "ticket_link_text": "Tickets",
         "button_text_color": "#000000",
-        "button_bg_color": "#FFFFFF"
+        "button_bg_color": "#ffffff",
+        "padding_y_desktop": 60,
+        "padding_y_mobile": 32
       }
     }
   },
