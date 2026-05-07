@@ -1,0 +1,207 @@
+{% style %}
+
+  [data-section-id="{{ section.id }}"] {
+    background-color: {{ section.settings.bg_color }} !important;
+    color: {{ section.settings.text_color }} !important;
+    padding-top: {{ section.settings.padding_y_desktop }}px;
+    padding-bottom: {{ section.settings.padding_y_desktop }}px;
+  }
+
+  [data-section-id="{{ section.id }}"] ul li a {
+    color: {{ section.settings.text_color }};
+  }
+
+  [data-section-id="{{ section.id }}"] ul li a svg,
+  [data-section-id="{{ section.id }}"] ul li a svg path {
+    fill: {{ section.settings.text_color }};
+  }
+
+  @media screen and (max-width: 768px) {
+    [data-section-id="{{ section.id }}"] {
+      padding-top: {{ section.settings.padding_y_mobile }}px;
+      padding-bottom: {{ section.settings.padding_y_mobile }}px;
+    }
+  }
+
+{% endstyle %}
+
+<section data-section-id="{{ section.id }}" class="section fake-footer" {% if section.settings.section_anchor_id %} id="{{ section.settings.section_anchor_id }}" {% endif %}>
+    <div class="col">
+        {% if section.settings.fake_footer_image_left %}
+            {{ section.settings.fake_footer_image_left | image_url: width: 1200 | image_tag: loading: 'lazy', sizes: '(min-width: 768px) 50vw, 100vw', widths: '400,600,800,1000,1200', alt: 'Faouzia' }}
+        {% endif %}
+        {% if section.blocks.size > 0 %}
+            <ul class="desktop">
+                {% for block in section.blocks %}
+                    <li>
+                        <a href="{{ block.settings.url }}" target="_blank">
+                           {% case block.settings.social_link %}
+                                {% when 'text' %}
+                                    {{ block.settings.link_label }}
+                                {% when 'instagram' %}
+                                    {% render 'icon-instagram' %}
+                                {% when 'tiktok' %}
+                                    {% render 'icon-tiktok' %}
+                                {% when 'apple-music' %}
+                                    {% render 'icon-apple-music' %}
+                                {% when 'facebook' %}
+                                    {% render 'icon-facebook' %}
+                                {% when 'spotify' %}
+                                    {% render 'icon-spotify' %}
+                                {% when 'youtube' %}
+                                    {% render 'icon-youtube' %}
+                                {% when 'soundcloud' %}
+                                    {% render 'icon-soundcloud' %}
+                                {% when 'amazon-music' %}
+                                    {% render 'icon-amazon-music' %}
+                                {% when 'x-twitter' %}
+                                    {% render 'icon-x-twitter' %}
+                            {% endcase %}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+    <div class="col">
+        {% if section.settings.fake_footer_image_right %}
+            {{ section.settings.fake_footer_image_right | image_url: width: 1200 | image_tag: loading: 'lazy', sizes: '(min-width: 768px) 50vw, 100vw', widths: '400,600,800,1000,1200', alt: 'Faouzia' }}
+        {% endif %}
+        {% if section.blocks.size > 0 %}
+            <ul class="mobile">
+                {% for block in section.blocks %}
+                    <li>
+                        <a href="{{ block.settings.url }}" target="_blank">
+                           {% case block.settings.social_link %}
+                                {% when 'text' %}
+                                    {{ block.settings.link_label }}
+                                {% when 'instagram' %}
+                                    {% render 'icon-instagram' %}
+                                {% when 'tiktok' %}
+                                    {% render 'icon-tiktok' %}
+                                {% when 'apple-music' %}
+                                    {% render 'icon-apple-music' %}
+                                {% when 'facebook' %}
+                                    {% render 'icon-facebook' %}
+                                {% when 'spotify' %}
+                                    {% render 'icon-spotify' %}
+                                {% when 'youtube' %}
+                                    {% render 'icon-youtube' %}
+                                {% when 'soundcloud' %}
+                                    {% render 'icon-soundcloud' %}
+                                {% when 'amazon-music' %}
+                                    {% render 'icon-amazon-music' %}
+                                {% when 'x-twitter' %}
+                                    {% render 'icon-x-twitter' %}
+                            {% endcase %}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+</section>
+
+{% schema %}
+{
+    "name": "Fake Footer",
+    "enabled_on": {
+        "templates": ["product", "collection", "page", "index", "article", "blog", "404", "cart", "search"]
+    },
+    "settings": [
+        {
+            "type": "text",
+            "id": "section_anchor_id",
+            "label": "Section Anchor ID (optional)"
+        },
+        {
+            "type": "color",
+            "id": "bg_color",
+            "label": "Background Color",
+            "default": "#FFFFFF"
+        },
+        {
+            "type": "color",
+            "id": "text_color",
+            "label": "Text Color",
+            "default": "#FFFFFF"
+        },
+        {
+            "type": "range",
+            "id": "padding_y_desktop",
+            "label": "Desktop Padding Y (px)",
+            "min": 0,
+            "max": 200,
+            "step": 4,
+            "unit": "px",
+            "default": 40
+        },
+        {
+            "type": "range",
+            "id": "padding_y_mobile",
+            "label": "Mobile Padding Y (px)",
+            "min": 0,
+            "max": 100,
+            "step": 4,
+            "unit": "px",
+            "default": 20
+        },
+        {
+            "type": "header",
+            "content": "Images"
+        },
+        {
+            "type": "image_picker",
+            "id": "fake_footer_image_left",
+            "label": "Left Image"
+        },
+        {
+            "type": "image_picker",
+            "id": "fake_footer_image_right",
+            "label": "Right Image"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "social_link",
+            "name": "Social Link",
+            "settings": [
+                {
+                    "type": "select",
+                    "id": "social_link",
+                    "label": "Platform",
+                    "default": "text",
+                    "options": [
+                        { "value": "text",         "label": "Text / Title" },
+                        { "value": "instagram",    "label": "Instagram" },
+                        { "value": "tiktok",       "label": "TikTok" },
+                        { "value": "apple-music",  "label": "Apple Music" },
+                        { "value": "facebook",     "label": "Facebook" },
+                        { "value": "spotify",      "label": "Spotify" },
+                        { "value": "youtube",      "label": "YouTube" },
+                        { "value": "soundcloud",   "label": "SoundCloud" },
+                        { "value": "amazon-music", "label": "Amazon Music" },
+                        { "value": "x-twitter",    "label": "X (Twitter)" }
+                    ]
+                },
+                {
+                    "type": "text",
+                    "id": "link_label",
+                    "label": "Link Label (used when Text / Title is selected)",
+                    "default": "Follow"
+                },
+                {
+                    "type": "url",
+                    "id": "url",
+                    "label": "Link URL"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Fake Footer"
+        }
+    ]
+}
+{% endschema %}

@@ -51,61 +51,81 @@
         "tour_date_wxAttp": {
           "type": "tour_date",
           "settings": {
-            "date": "January 01, 2026",
-            "date_iso": "2026-01-01",
-            "venue_name": "Hammerstein Ballroom",
-            "city": "New York, NY",
-            "url": ""
+            "date": "June 17, 2026",
+            "date_iso": "2026-06-17",
+            "venue_name": "Heimathafen Neukölln",
+            "city": "Berlin, Germany",
+            "url": "https://link.seated.com/51b1e929-8c37-450e-8a06-4eae634e3c39"
           }
         },
         "tour_date_GLzQEd": {
           "type": "tour_date",
           "settings": {
-            "date": "January 01, 2026",
-            "date_iso": "2026-01-01",
-            "venue_name": "Hammerstein Ballroom",
-            "city": "New York, NY",
-            "url": ""
+            "date": "June 19, 2026",
+            "date_iso": "2026-06-19",
+            "venue_name": "Bürgerhaus Stollwerck",
+            "city": "Cologne, Germany",
+            "url": "https://link.seated.com/f53bbdb9-ecbe-400e-b828-60a86f3c76df"
           }
         },
         "tour_date_WYNCUL": {
           "type": "tour_date",
           "settings": {
-            "date": "January 01, 2026",
-            "date_iso": "2026-01-01",
-            "venue_name": "Hammerstein Ballroom",
-            "city": "New York, NY",
-            "url": ""
+            "date": "June 20, 2026",
+            "date_iso": "2026-06-20",
+            "venue_name": "Le Botanique Bruxelles",
+            "city": "Brussels, Belgium",
+            "url": "https://link.seated.com/985d7ced-60c2-44c5-b59c-a5cd6239a1d9"
           }
         },
         "tour_date_BxhzqX": {
           "type": "tour_date",
           "settings": {
-            "date": "January 01, 2026",
-            "date_iso": "2026-01-01",
-            "venue_name": "Hammerstein Ballroom",
-            "city": "New York, NY",
-            "url": ""
+            "date": "June 23, 2026",
+            "date_iso": "2026-06-23",
+            "venue_name": "Melkweg",
+            "city": "Amsterdam, Netherlands",
+            "url": "https://link.seated.com/be5ad32e-80e0-491e-a4fd-42380def1f24"
           }
         },
         "tour_date_rqz3jx": {
           "type": "tour_date",
           "settings": {
-            "date": "January 01, 2026",
-            "date_iso": "2026-01-01",
-            "venue_name": "Hammerstein Ballroom",
-            "city": "New York, NY",
-            "url": ""
+            "date": "June 25, 2026",
+            "date_iso": "2026-06-25",
+            "venue_name": "Alhambra",
+            "city": "Paris, France",
+            "url": "https://link.seated.com/e1b61f0d-68e4-485d-b2d9-1f625cb96f98"
           }
         },
         "tour_date_6QyYfj": {
           "type": "tour_date",
           "settings": {
-            "date": "January 01, 2026",
-            "date_iso": "2026-01-01",
-            "venue_name": "Hammerstein Ballroom",
-            "city": "New York, NY",
-            "url": ""
+            "date": "June 26, 2026",
+            "date_iso": "2026-06-26",
+            "venue_name": "Alhambra",
+            "city": "Paris, France",
+            "url": "https://link.seated.com/084d151a-639a-497d-abd5-0f826476e102"
+          }
+        },
+        "tour_date_Kp9mNr": {
+          "type": "tour_date",
+          "settings": {
+            "date": "June 29, 2026",
+            "date_iso": "2026-06-29",
+            "venue_name": "O2 Shepherd's Bush Empire",
+            "city": "London, UK",
+            "url": "https://link.seated.com/8487973e-c5cf-4223-8b68-eae7dc9a7cb5"
+          }
+        },
+        "tour_date_Tz2vQw": {
+          "type": "tour_date",
+          "settings": {
+            "date": "July 12, 2026",
+            "date_iso": "2026-07-12",
+            "venue_name": "Montreux Jazz Festival",
+            "city": "Montreux, Switzerland",
+            "url": "https://link.seated.com/55521659-6ce4-4a46-9dd7-a09f50091e18"
           }
         }
       },
@@ -115,7 +135,9 @@
         "tour_date_WYNCUL",
         "tour_date_BxhzqX",
         "tour_date_rqz3jx",
-        "tour_date_6QyYfj"
+        "tour_date_6QyYfj",
+        "tour_date_Kp9mNr",
+        "tour_date_Tz2vQw"
       ],
       "name": "Tour Dates",
       "settings": {
@@ -129,10 +151,100 @@
         "padding_y_desktop": 60,
         "padding_y_mobile": 32
       }
+    },
+    "fake_footer_BEwgAm": {
+      "type": "fake-footer",
+      "blocks": {
+        "social_link_JCGAfL": {
+          "type": "social_link",
+          "settings": {
+            "social_link": "instagram",
+            "link_label": "Follow",
+            "url": "https://www.instagram.com/faouzia"
+          }
+        },
+        "social_link_RVGcfG": {
+          "type": "social_link",
+          "settings": {
+            "social_link": "tiktok",
+            "link_label": "Follow",
+            "url": "https://www.tiktok.com/@faouziaofficial"
+          }
+        },
+        "social_link_JPL8xe": {
+          "type": "social_link",
+          "settings": {
+            "social_link": "x-twitter",
+            "link_label": "Follow",
+            "url": "https://x.com/faouzia"
+          }
+        },
+        "social_link_LaAkTP": {
+          "type": "social_link",
+          "settings": {
+            "social_link": "facebook",
+            "link_label": "Follow",
+            "url": "https://www.facebook.com/faouziaofficial"
+          }
+        },
+        "social_link_TwPEhx": {
+          "type": "social_link",
+          "settings": {
+            "social_link": "spotify",
+            "link_label": "Follow",
+            "url": "https://open.spotify.com/artist/5NhgsV7qPWHZqYEMKzbYvo?si=yoxfFOxiTU2qJMPDXjEX7Q"
+          }
+        },
+        "social_link_49QUXj": {
+          "type": "social_link",
+          "settings": {
+            "social_link": "youtube",
+            "link_label": "Follow",
+            "url": "https://www.youtube.com/@Faouzia"
+          }
+        },
+        "social_link_ctQkKa": {
+          "type": "social_link",
+          "settings": {
+            "social_link": "apple-music",
+            "link_label": "Follow",
+            "url": "https://music.apple.com/us/artist/faouzia/414067643"
+          }
+        },
+        "social_link_ANyhXi": {
+          "type": "social_link",
+          "settings": {
+            "social_link": "text",
+            "link_label": "Subscribe",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "social_link_JCGAfL",
+        "social_link_RVGcfG",
+        "social_link_JPL8xe",
+        "social_link_LaAkTP",
+        "social_link_TwPEhx",
+        "social_link_49QUXj",
+        "social_link_ctQkKa",
+        "social_link_ANyhXi"
+      ],
+      "name": "Fake Footer",
+      "settings": {
+        "section_anchor_id": "",
+        "bg_color": "#000000",
+        "text_color": "#ffffff",
+        "padding_y_desktop": 60,
+        "padding_y_mobile": 32,
+        "fake_footer_image_left": "shopify://shop_images/Group_5_2x_071da8db-9666-4fd0-87f4-f7d3f073e59c.png",
+        "fake_footer_image_right": "shopify://shop_images/Image_4_2x_6b84aede-f579-4e55-90a2-f025623a2699.png"
+      }
     }
   },
   "order": [
     "hero_jVaWmY",
-    "tour_dates_RzEeHx"
+    "tour_dates_RzEeHx",
+    "fake_footer_BEwgAm"
   ]
 }
