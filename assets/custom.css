@@ -9,7 +9,15 @@ header-actions {
     margin: 0;  
 }
 
-.tour-dates {
+body,
+h1, 
+h2,
+h3, 
+h4, 
+h5, 
+h6, 
+p,
+a {
     font-family: 'TayBigBird', sans-serif;
 }
 
@@ -51,7 +59,6 @@ header-actions {
 @media screen and (min-width: 1280px) {
     .tour-dates__container {
         font-size: 20px;
-        max-width: 1280px;
     }
 
     .tour-dates h2 {
@@ -69,7 +76,6 @@ header-actions {
 @media screen and (min-width: 1024px) and (max-width: 1279px) {
     .tour-dates__container {
         font-size: 17px;
-        max-width: 900px;
     }
 
     .tour-dates h2 {
@@ -87,7 +93,6 @@ header-actions {
 @media screen and (min-width: 761px) and (max-width: 1023px) {
     .tour-dates__container {
         font-size: 15px;
-        max-width: 720px;
     }
 
     .tour-dates h2 {
@@ -127,11 +132,18 @@ header-actions {
         text-align: center;
         margin-top: 0.75rem;
     }
+}
+
+.fake-footer .col:first-child,
+.fake-footer .col:last-child {
+    gap: 3rem;
+}
 
 /* Fake Footer */
-.fake-footer {
+.fake-footer-inner {
     display: flex !important;
     flex-direction: row;
+    gap: 4rem;
 }
 
 .fake-footer .col {
@@ -140,10 +152,16 @@ header-actions {
     flex: 1;
 }
 
+@media screen and (min-width: 769px) {
+    .fake-footer .col:last-child {
+        padding: 5%;
+    }
+}
+
 .fake-footer .col img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     display: block;
 }
 
@@ -151,10 +169,11 @@ header-actions {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 1.25rem;
+    width: 100%;
     list-style: none;
+    padding: 0;
     margin: 0;
-    padding: 1.5rem;
+    justify-content: space-between;
 }
 
 .fake-footer ul li a {
@@ -168,43 +187,76 @@ header-actions {
     display: block;
 }
 
-/* Desktop: show the list in left col, hide the one in right col */
-.fake-footer ul.mobile {
-    display: none;
+/* Visibility utilities */
+.desktop-only {
+    display: flex !important;
 }
 
-.fake-footer ul.desktop {
-    display: flex;
+.mobile-only {
+    display: none !important;
 }
 
-/* Mobile: stack left image → right image → social links */
-@media screen and (max-width: 768px) {
-    .fake-footer {
+.follow-image-container {
+    position: relative;
+}
+.follow-image-container span {
+    position: absolute;
+    top: 45%;
+    left: 10%;
+    transform: translate(-50%, -50%);
+    font-size: 64px;
+}
+
+@media screen and (max-width: 769px) {
+    .desktop-only {
+       display: none !important;
+    }
+    .mobile-only {
+        display: flex !important;
+    }
+    .follow-image-container {
+        width: 67%;
+    }
+    .follow-image-container span  {
+        top: 45%;
+        left: 20%;
+        font-size: 48px;
+    }
+    .fake-footer-inner {
         flex-direction: column;
     }
 
     .fake-footer .col {
         align-items: center;
     }
-
     /* Move right col below left col using order */
     .fake-footer .col:first-child {
         order: 1;
     }
-
+    .fake-footer .col:first-child,
+    .fake-footer .col:last-child {
+        gap: 1rem;
+    }
     .fake-footer .col:last-child {
         order: 2;
+        gap: 2rem;
+        padding: 0; 
     }
-
-    /* Hide desktop list, show mobile list */
-    .fake-footer ul.desktop {
-        display: none;
+    .fake-footer ul li a svg {
+        width: 20px;
+        height: 20px;
     }
-
-    .fake-footer ul.mobile {
-        display: flex;
-        justify-content: center;
+    .fake-footer-inner {
+        gap: 2rem;
+    }
+    .fake-footer .col:last-child img {
+        margin-left: 10px;
     }
 }
-}
 
+@media screen and (max-width: 560px) {
+    .follow-image-container span {
+        font-size: 32px;
+        left: 19%;
+    }
+}

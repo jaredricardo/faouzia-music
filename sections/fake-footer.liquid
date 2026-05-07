@@ -26,79 +26,52 @@
 {% endstyle %}
 
 <section data-section-id="{{ section.id }}" class="section fake-footer" {% if section.settings.section_anchor_id %} id="{{ section.settings.section_anchor_id }}" {% endif %}>
-    <div class="col">
-        {% if section.settings.fake_footer_image_left %}
-            {{ section.settings.fake_footer_image_left | image_url: width: 1200 | image_tag: loading: 'lazy', sizes: '(min-width: 768px) 50vw, 100vw', widths: '400,600,800,1000,1200', alt: 'Faouzia' }}
-        {% endif %}
-        {% if section.blocks.size > 0 %}
-            <ul class="desktop">
-                {% for block in section.blocks %}
-                    <li>
-                        <a href="{{ block.settings.url }}" target="_blank">
-                           {% case block.settings.social_link %}
-                                {% when 'text' %}
-                                    {{ block.settings.link_label }}
-                                {% when 'instagram' %}
-                                    {% render 'icon-instagram' %}
-                                {% when 'tiktok' %}
-                                    {% render 'icon-tiktok' %}
-                                {% when 'apple-music' %}
-                                    {% render 'icon-apple-music' %}
-                                {% when 'facebook' %}
-                                    {% render 'icon-facebook' %}
-                                {% when 'spotify' %}
-                                    {% render 'icon-spotify' %}
-                                {% when 'youtube' %}
-                                    {% render 'icon-youtube' %}
-                                {% when 'soundcloud' %}
-                                    {% render 'icon-soundcloud' %}
-                                {% when 'amazon-music' %}
-                                    {% render 'icon-amazon-music' %}
-                                {% when 'x-twitter' %}
-                                    {% render 'icon-x-twitter' %}
-                            {% endcase %}
-                        </a>
-                    </li>
-                {% endfor %}
-            </ul>
-        {% endif %}
-    </div>
-    <div class="col">
-        {% if section.settings.fake_footer_image_right %}
-            {{ section.settings.fake_footer_image_right | image_url: width: 1200 | image_tag: loading: 'lazy', sizes: '(min-width: 768px) 50vw, 100vw', widths: '400,600,800,1000,1200', alt: 'Faouzia' }}
-        {% endif %}
-        {% if section.blocks.size > 0 %}
-            <ul class="mobile">
-                {% for block in section.blocks %}
-                    <li>
-                        <a href="{{ block.settings.url }}" target="_blank">
-                           {% case block.settings.social_link %}
-                                {% when 'text' %}
-                                    {{ block.settings.link_label }}
-                                {% when 'instagram' %}
-                                    {% render 'icon-instagram' %}
-                                {% when 'tiktok' %}
-                                    {% render 'icon-tiktok' %}
-                                {% when 'apple-music' %}
-                                    {% render 'icon-apple-music' %}
-                                {% when 'facebook' %}
-                                    {% render 'icon-facebook' %}
-                                {% when 'spotify' %}
-                                    {% render 'icon-spotify' %}
-                                {% when 'youtube' %}
-                                    {% render 'icon-youtube' %}
-                                {% when 'soundcloud' %}
-                                    {% render 'icon-soundcloud' %}
-                                {% when 'amazon-music' %}
-                                    {% render 'icon-amazon-music' %}
-                                {% when 'x-twitter' %}
-                                    {% render 'icon-x-twitter' %}
-                            {% endcase %}
-                        </a>
-                    </li>
-                {% endfor %}
-            </ul>
-        {% endif %}
+    <div class="fake-footer-inner">
+        <div class="col">
+            {% if section.settings.fake_footer_image_left %}
+                {{ section.settings.fake_footer_image_left | image_url: width: 1200 | image_tag: loading: 'lazy', sizes: '(min-width: 768px) 50vw, 100vw', widths: '400,600,800,1000,1200', alt: 'Faouzia' }}
+            {% endif %}
+        </div>
+        <div class="col">
+            <div class="follow-image-container">
+                <span>Follow</span>
+                {% if section.settings.fake_footer_image_right %}
+                    {{ section.settings.fake_footer_image_right | image_url: width: 1200 | image_tag: loading: 'lazy', sizes: '(min-width: 768px) 50vw, 100vw', widths: '400,600,800,1000,1200', alt: 'Faouzia' }}
+                {% endif %}
+            </div>
+            {% if section.blocks.size > 0 %}
+                <ul>
+                    {% for block in section.blocks %}   
+                        <li>
+                            <a href="{{ block.settings.url }}" target="_blank">
+                            {% case block.settings.social_link %}
+                                    {% when 'text' %}
+                                        {{ block.settings.link_label }}
+                                    {% when 'instagram' %}
+                                        {% render 'icon-instagram' %}
+                                    {% when 'tiktok' %}
+                                        {% render 'icon-tiktok' %}
+                                    {% when 'apple-music' %}
+                                        {% render 'icon-apple-music' %}
+                                    {% when 'facebook' %}
+                                        {% render 'icon-facebook' %}
+                                    {% when 'spotify' %}
+                                        {% render 'icon-spotify' %}
+                                    {% when 'youtube' %}
+                                        {% render 'icon-youtube' %}
+                                    {% when 'soundcloud' %}
+                                        {% render 'icon-soundcloud' %}
+                                    {% when 'amazon-music' %}
+                                        {% render 'icon-amazon-music' %}
+                                    {% when 'x-twitter' %}
+                                        {% render 'icon-x-twitter' %}
+                                {% endcase %}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
     </div>
 </section>
 
