@@ -537,6 +537,12 @@
       {% content_for 'blocks' %}
     </div>
   </div>
+
+  {% if section.settings.custom_html != blank %}
+    <div class="hero__custom-html" style="position: absolute; inset: 0; width: 100%; height: 100%; z-index: 10;">
+      {{ section.settings.custom_html }}
+    </div>
+  {% endif %}
 </div>
 
 {% stylesheet %}
@@ -781,6 +787,16 @@
     "groups": ["header"]
   },
   "settings": [
+    {
+      "type": "header",
+      "content": "Custom HTML Override"
+    },
+    {
+      "type": "textarea",
+      "id": "custom_html",
+      "label": "Custom HTML",
+      "info": "Paste custom HTML here to override the section blocks. Background image/video settings still apply. Leave blank to use the standard block layout."
+    },
     {
       "type": "header",
       "content": "t:content.media_1"
