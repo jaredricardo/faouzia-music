@@ -23,16 +23,70 @@
     }
   }
 
+  [data-section-id="{{ section.id }}"] ul li button.email-modal-trigger {
+    color: {{ section.settings.text_color }};
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    font: inherit;
+    text-decoration: none;
+  }
+
 {% endstyle %}
+
+<style>
+  .email-signup-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+  }
+  .email-signup-modal-overlay[hidden] {
+    display: none;
+  }
+  .email-signup-modal-container {
+    position: relative;
+    background: #fff;
+    border-radius: 5px;
+    padding: 2rem;
+    max-width: 500px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  .email-signup-modal-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+  }
+  .email-signup-modal-close svg {
+    --icon-stroke-width: 1.5px;
+    width: 18px;
+    height: 18px;
+  }
+</style>
 
 <section data-section-id="{{ section.id }}" class="section fake-footer" {% if section.settings.section_anchor_id %} id="{{ section.settings.section_anchor_id }}" {% endif %}>
     <div class="fake-footer-inner">
-        <div class="col">
+        <div class="col first">
             {% if section.settings.fake_footer_image_left %}
                 {{ section.settings.fake_footer_image_left | image_url: width: 1200 | image_tag: loading: 'lazy', sizes: '(min-width: 768px) 50vw, 100vw', widths: '400,600,800,1000,1200', alt: 'Faouzia' }}
             {% endif %}
         </div>
-        <div class="col">
+        <div class="col second">
             <div class="follow-image-container">
                 <span>Follow</span>
                 {% if section.settings.fake_footer_image_right %}
@@ -43,30 +97,34 @@
                 <ul>
                     {% for block in section.blocks %}   
                         <li>
-                            <a href="{{ block.settings.url }}" target="_blank">
-                            {% case block.settings.social_link %}
-                                    {% when 'text' %}
-                                        {{ block.settings.link_label }}
-                                    {% when 'instagram' %}
-                                        {% render 'icon-instagram' %}
-                                    {% when 'tiktok' %}
-                                        {% render 'icon-tiktok' %}
-                                    {% when 'apple-music' %}
-                                        {% render 'icon-apple-music' %}
-                                    {% when 'facebook' %}
-                                        {% render 'icon-facebook' %}
-                                    {% when 'spotify' %}
-                                        {% render 'icon-spotify' %}
-                                    {% when 'youtube' %}
-                                        {% render 'icon-youtube' %}
-                                    {% when 'soundcloud' %}
-                                        {% render 'icon-soundcloud' %}
-                                    {% when 'amazon-music' %}
-                                        {% render 'icon-amazon-music' %}
-                                    {% when 'x-twitter' %}
-                                        {% render 'icon-x-twitter' %}
-                                {% endcase %}
-                            </a>
+                            {% if block.settings.social_link == 'text' %}
+                                <button type="button" class="email-modal-trigger" data-open-email-modal>
+                                    {{ block.settings.link_label }}
+                                </button>
+                            {% else %}
+                                <a href="{{ block.settings.url }}" target="_blank">
+                                    {% case block.settings.social_link %}
+                                        {% when 'instagram' %}
+                                            {% render 'icon-instagram' %}
+                                        {% when 'tiktok' %}
+                                            {% render 'icon-tiktok' %}
+                                        {% when 'apple-music' %}
+                                            {% render 'icon-apple-music' %}
+                                        {% when 'facebook' %}
+                                            {% render 'icon-facebook' %}
+                                        {% when 'spotify' %}
+                                            {% render 'icon-spotify' %}
+                                        {% when 'youtube' %}
+                                            {% render 'icon-youtube' %}
+                                        {% when 'soundcloud' %}
+                                            {% render 'icon-soundcloud' %}
+                                        {% when 'amazon-music' %}
+                                            {% render 'icon-amazon-music' %}
+                                        {% when 'x-twitter' %}
+                                            {% render 'icon-x-twitter' %}
+                                    {% endcase %}
+                                </a>
+                            {% endif %}
                         </li>
                     {% endfor %}
                 </ul>
@@ -74,6 +132,105 @@
         </div>
     </div>
 </section>
+
+<!-- Email Signup Modal -->
+<div id="email-signup-modal-overlay" class="email-signup-modal-overlay" hidden aria-modal="true" role="dialog" aria-label="Email Signup">
+  <div class="email-signup-modal-container">
+    <button id="email-signup-modal-close" type="button" class="email-signup-modal-close" aria-label="Close">
+      <svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2L2 12" stroke="currentColor" stroke-width="var(--icon-stroke-width)" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M12 12L2 2" stroke="currentColor" stroke-width="var(--icon-stroke-width)" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+
+    <link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css">
+    <style type="text/css">
+      #mc_embed_signup { background: #fff; clear: left; font: 14px Helvetica, Arial, sans-serif; width: auto; }
+      #mc_embed_signup { color: black; }
+    </style>
+
+    <div id="mc_embed_signup">
+      <form action="https://faouziaofficial.us16.list-manage.com/subscribe/post?u=c0c295bf3ca3a962fd238ae8b&amp;id=15a5c60d73&amp;f_id=004b24e0f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
+        <div id="mc_embed_signup_scroll">
+          <h2>Keep up to date with Faouzia</h2>
+          <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
+          <div class="mc-field-group">
+            <label for="mce-EMAIL">Email Address <span class="asterisk">*</span></label>
+            <input type="email" name="EMAIL" class="required email" id="mce-EMAIL" required="" value="">
+          </div>
+          <div id="mce-responses" class="clear">
+            <div class="response" id="mce-error-response" style="display: none;"></div>
+            <div class="response" id="mce-success-response" style="display: none;"></div>
+          </div>
+          <div aria-hidden="true" style="position: absolute; left: -5000px;">
+            <input type="text" name="b_c0c295bf3ca3a962fd238ae8b_15a5c60d73" tabindex="-1" value="">
+          </div>
+          <div class="clear">
+            <input type="submit" name="subscribe" id="mc-embedded-subscribe" class="button" value="Subscribe">
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
+    <script type="text/javascript">
+      (function($) {
+        window.fnames = new Array(); window.ftypes = new Array();
+        fnames[0]='EMAIL'; ftypes[0]='email';
+        fnames[1]='FNAME'; ftypes[1]='text';
+        fnames[2]='LNAME'; ftypes[2]='text';
+        fnames[5]='BIRTHDAY'; ftypes[5]='birthday';
+        fnames[3]='ADDRESS'; ftypes[3]='address';
+        fnames[4]='PHONE'; ftypes[4]='phone';
+        fnames[6]='COMPANY'; ftypes[6]='text';
+      }(jQuery));
+      var $mcj = jQuery.noConflict(true);
+    </script>
+  </div>
+</div>
+
+<script>
+  (function() {
+    var overlay = document.getElementById('email-signup-modal-overlay');
+    var triggers = document.querySelectorAll('[data-open-email-modal]');
+    var closeBtn = document.getElementById('email-signup-modal-close');
+
+    function openModal() {
+      overlay.removeAttribute('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      overlay.setAttribute('hidden', '');
+      document.body.style.overflow = '';
+    }
+
+    triggers.forEach(function(trigger) {
+      trigger.addEventListener('click', function(e) {
+        e.preventDefault();
+        openModal();
+      });
+    });
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', closeModal);
+    }
+
+    if (overlay) {
+      overlay.addEventListener('click', function(e) {
+        if (e.target === overlay) {
+          closeModal();
+        }
+      });
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && overlay && !overlay.hasAttribute('hidden')) {
+        closeModal();
+      }
+    });
+  })();
+</script>
 
 {% schema %}
 {
