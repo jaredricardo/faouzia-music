@@ -19,6 +19,28 @@
     background-color: {{ section.settings.button_bg_color }};
   }
 
+  [data-section-id="{{ section.id }}"] .tour-dates__container {
+    max-height: 60vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: #ffffff transparent;
+    padding-right: 16px;
+  }
+
+  [data-section-id="{{ section.id }}"] .tour-dates__container::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  [data-section-id="{{ section.id }}"] .tour-dates__container::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  [data-section-id="{{ section.id }}"] .tour-dates__container::-webkit-scrollbar-thumb {
+    background-color: #ffffff;
+    border-radius: 3px;
+  }
+
 {% endstyle %}
 
 <section data-section-id="{{ section.id }}" class="section tour-dates" {% if section.settings.section_anchor_id %} id="{{ section.settings.section_anchor_id }}" {% endif %}>
