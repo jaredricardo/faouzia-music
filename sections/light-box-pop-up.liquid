@@ -1,0 +1,120 @@
+{% style %}
+    [data-section-id="{{ section.id }}"] {
+        display: none;
+        position: fixed;
+        z-index: 100;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+    [data-section-id="{{ section.id }}"].active {
+        display: flex;
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+    [data-section-id="{{ section.id }}"] .light-box__inner {
+        background-color: {{ section.settings.bg_color }};
+    }
+{% endstyle %}
+
+<section class="lightbox-pop-up" data-section-id="{{ section.id }}">
+    <div class="light-box__inner">
+        {% if section.settings.title %}
+            <h4>{{ section.settings.title }}</h4>
+        {% endif %}
+        {% if section.settings.image %}
+            <img src="{{ section.settings.image | img_url: 'master' }}" alt="{{ section.settings.title }}">
+        {% endif %}
+        {% if section.settings.url %}
+            <a href="{{ section.settings.url }}" class="faouzia-button" target="_blank">{{ section.settings.url_text }}</a>
+        {% endif %}
+        <button class="light-box__close" data-section-close="{{ section.id }}">
+            {% render 'icon-close' %}
+        </button>
+    </div>
+</section>
+
+<script>
+    (function () {
+        const sectionId = {{ section.id | json }}
+        const triggerTime = {{ section.settings.trigger_time | default: 4000 }}
+        const sessionKey = `lightbox-seen-${sectionId}`
+
+        const overlay = document.querySelector(`[data-section-id="${sectionId}"]`)
+
+        if (!overlay) return
+
+        if (sessionStorage.getItem(sessionKey)) return
+
+        function openLightbox() {
+            overlay.classList.add('active')
+        }
+
+        function closeLightbox() {
+            overlay.classList.remove('active')
+            sessionStorage.setItem(sessionKey, '1')
+        }
+
+        // Close when clicking the dark overlay background directly
+        overlay.addEventListener('click', function (e) {
+            if (e.target === overlay) {
+                closeLightbox()
+            }
+        })
+
+        // Close when clicking the close button
+        const closeBtn = overlay.querySelector(`[data-section-close="${sectionId}"]`)
+        if (closeBtn) {
+            closeBtn.addEventListener('click', closeLightbox)
+        }
+
+        setTimeout(openLightbox, triggerTime)
+    })()
+</script>
+
+{% schema %}
+{
+    "name": "Lightbox Pop-up",
+    "settings": [
+        {
+            "type": "number",
+            "id": "trigger_time",
+            "label": "Lightbox trigger after time (ms)",
+            "default": 4000
+        },
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+        },
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+        },
+        {
+            "type": "url",
+            "id": "url",
+            "label": "Link URL"
+        },
+        {
+            "type": "text",
+            "id": "url_text",
+            "label": "Link Text",
+            "default": "Listen Now"
+        },
+        {
+            "type": "color",
+            "id": "bg_color",
+            "label": "Background Color",
+            "default": "#ffffff"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Lightbox Pop-up"
+        }
+    ]
+}
+{% endschema %}
+

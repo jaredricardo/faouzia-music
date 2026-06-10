@@ -114,10 +114,23 @@
         "enable_transparent_header_collection": false,
         "collection_color_scheme": "default"
       }
+    },
+    "light_box_pop_up_kMqibw": {
+      "type": "light-box-pop-up",
+      "name": "Lightbox Pop-up",
+      "settings": {
+        "trigger_time": 4000,
+        "title": "FILM NOIR (FIN)",
+        "image": "shopify://shop_images/cTji83hg.jpg",
+        "url": "http://stem.ffm.to/filmnoirdeluxe",
+        "url_text": "Listen Now",
+        "bg_color": "#ffffff"
+      }
     }
   },
   "order": [
     "header_announcements_9jGBFp",
-    "header_section"
+    "header_section",
+    "light_box_pop_up_kMqibw"
   ]
 }
