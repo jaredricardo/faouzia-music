@@ -1,0 +1,117 @@
+{% style %}
+
+  [data-section-id="{{ section.id }}"] {
+    background-color: {{ section.settings.bg_color }} !important;
+    color: {{ section.settings.text_color }} !important;
+    padding-top: {{ section.settings.padding_y_desktop }}px;
+    padding-bottom: {{ section.settings.padding_y_desktop }}px;
+  }
+
+  @media screen and (max-width: 768px) {
+    [data-section-id="{{ section.id }}"] {
+      padding-top: {{ section.settings.padding_y_mobile }}px;
+      padding-bottom: {{ section.settings.padding_y_mobile }}px;
+    }
+  }
+
+  [data-section-id="{{ section.id }}"] .tour-date__info a {
+    color: {{ section.settings.button_text_color }};
+    background-color: {{ section.settings.button_bg_color }};
+  }
+
+  [data-section-id="{{ section.id }}"] .tour-dates__container {
+    max-height: 60vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: #ffffff transparent;
+  }
+
+  [data-section-id="{{ section.id }}"] .tour-dates__container::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  [data-section-id="{{ section.id }}"] .tour-dates__container::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  [data-section-id="{{ section.id }}"] .tour-dates__container::-webkit-scrollbar-thumb {
+    background-color: #ffffff;
+    border-radius: 3px;
+  }
+
+{% endstyle %}
+
+<section data-section-id="{{ section.id }}" class="section tour-dates" {% if section.settings.section_anchor_id %} id="{{ section.settings.section_anchor_id }}" {% endif %}>
+    {% if section.settings.header %}
+        <h2>{{ section.settings.header }}</h2>
+    {% endif %}
+    {% if section.settings.script_for_load %}
+        {{ section.settings.script_for_load }}
+    {% endif %}
+</section>
+
+{% schema %}
+{
+    "name": "Tour Dates",
+    "enabled_on": {
+        "templates": ["product", "collection", "page", "index", "article", "blog", "404", "cart", "search"]
+    },
+    "settings": [
+        {
+            "type": "text",
+            "id": "section_anchor_id",
+            "label": "Section Anchor ID (optional)"
+        },
+        {
+            "type": "color",
+            "id": "bg_color",
+            "label": "Background Color",
+            "default": "#FFFFFF"
+        },
+        {
+            "type": "color",
+            "id": "text_color",
+            "label": "Text Color",
+            "default": "#FFFFFF"
+        },
+        {
+            "type": "html",
+            "id": "script_for_load",
+            "label": "Script to load tour dates"
+        },
+        {
+            "type": "text",
+            "id": "header",
+            "label": "Header",
+            "default": "Tour Dates"
+        },
+                {
+            "type": "range",
+            "id": "padding_y_desktop",
+            "label": "Desktop Padding Y (px)",
+            "min": 0,
+            "max": 200,
+            "step": 4,
+            "unit": "px",
+            "default": 40
+        },
+        {
+            "type": "range",
+            "id": "padding_y_mobile",
+            "label": "Mobile Padding Y (px)",
+            "min": 0,
+            "max": 100,
+            "step": 4,
+            "unit": "px",
+            "default": 20
+        }
+    ],
+    "blocks": [],
+    "presets": [
+        {
+            "name": "Auto Tour Dates"
+        }
+    ]
+}
+{% endschema %}

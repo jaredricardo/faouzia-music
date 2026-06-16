@@ -27,13 +27,35 @@ button {
     font-family: 'TayBigBird', sans-serif;
 }
 
-.tour-dates__container {
+.tour-dates__container,
+.tour-dates .seated-events-table {
     display: flex;
     flex-direction: column;
     width: 100%;
     text-transform: uppercase;
     margin: 0 auto;
     font-size: 20px;
+    max-height: 60vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: #ffffff transparent;
+}
+
+.tour-dates__container::-webkit-scrollbar,
+.tour-dates .seated-events-table::-webkit-scrollbar {
+    width: 6px;
+}
+
+.tour-dates__container::-webkit-scrollbar-track,
+.tour-dates .seated-events-table::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.tour-dates__container::-webkit-scrollbar-thumb,
+.tour-dates .seated-events-table::-webkit-scrollbar-thumb {
+    background-color: #ffffff;
+    border-radius: 3px;
 }
 
 .tour-date__info {
@@ -44,21 +66,34 @@ button {
     padding: 1rem 0;
 }
 
-.faouzia-button {
+.seated-event-venue-name,
+.seated-event-venue-location {
+    width: 100% !important;
+}
+
+.faouzia-button,
+.tour-dates .seated-event-link {
     padding: 0.75rem 1.25rem !important;
     text-transform: uppercase !important;
     max-width: max-content;
     line-height: 1 !important;
     margin: 0 auto;
+    min-width: auto !important;
 }
 
-.faouzia-button:hover {
+.faouzia-button:hover,
+.tour-dates .seated-event-link:hover {
    opacity: 0.8;
+}
+
+.seated-events-table {
+    border-top: none !important;
 }
 
 /* Tour Dates — 1280px+ */
 @media screen and (min-width: 1280px) {
-    .tour-dates__container {
+    .tour-dates__container,
+    .tour-dates .seated-events-table {
         font-size: 20px;
     }
 
@@ -67,7 +102,8 @@ button {
         margin-bottom: 2rem;
     }
 
-    .faouzia-button {
+    .faouzia-button,
+    .tour-dates .seated-event-link {
         padding: 0.75rem 1.5rem !important;
         font-size: 0.963rem !important;
     }
@@ -75,7 +111,8 @@ button {
 
 /* Tour Dates — 1024px to 1280px */
 @media screen and (min-width: 1024px) and (max-width: 1279px) {
-    .tour-dates__container {
+    .tour-dates__container,
+    .tour-dates .seated-events-table {
         font-size: 17px;
     }
 
@@ -84,7 +121,8 @@ button {
         margin-bottom: 1.75rem;
     }
 
-    .faouzia-button {
+    .faouzia-button,
+    .tour-dates .seated-event-link {
         padding: 0.65rem 1.25rem !important;
         font-size: 0.894rem !important;
     }
@@ -92,7 +130,8 @@ button {
 
 /* Tour Dates — 761px to 1024px */
 @media screen and (min-width: 761px) and (max-width: 1023px) {
-    .tour-dates__container {
+    .tour-dates__container,
+    .tour-dates .seated-events-table {
         font-size: 15px;
     }
 
@@ -101,7 +140,8 @@ button {
         margin-bottom: 1.5rem;
     }
 
-    .faouzia-button {
+    .faouzia-button,
+    .tour-dates .seated-event-link {
         padding: 0.6rem 1rem !important;
         font-size: 0.825rem !important;
     }
@@ -109,7 +149,8 @@ button {
 
 /* Tour Dates — 761px and below */
 @media screen and (max-width: 760px) {
-    .tour-dates__container {
+    .tour-dates__container,
+    .tour-dates .seated-events-table {
         font-size: 14px;
         align-items: center;
         text-align: center;
@@ -126,12 +167,56 @@ button {
         padding: 1rem 0;
     }
 
-    .faouzia-button {
+    .faouzia-button,
+    .tour-dates .seated-event-link {
         padding: 0.6rem 1.25rem !important;
         font-size: 0.825rem !important;
         width: 100%;
         text-align: center;
         margin-top: 0.75rem;
+    }
+}
+
+/* Tour Dates — Seated Widget Overrides */
+
+.tour-dates .seated-event-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr auto;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    border: none;
+}
+
+/* Flatten nested wrappers into the parent grid */
+.tour-dates .seated-event-description-cells,
+.tour-dates .seated-event-venue-cell,
+.tour-dates .seated-event-link-cells,
+.tour-dates .seated-event-link-cell {
+    display: contents;
+}
+
+/* Empty details cell — hidden so it doesn't occupy a grid column */
+.tour-dates .seated-event-details-cell {
+    display: none;
+}
+
+.tour-dates .seated-event-link {
+    font-family: 'TayBigBird', sans-serif;
+}
+
+/* Hide follow box and "powered by seated" footer */
+.tour-dates .seated-follow-box,
+.tour-dates [class=""][style*="font-size: 1rem"] {
+    display: none;
+}
+
+/* Seated — 760px and below */
+@media screen and (max-width: 760px) {
+    .tour-dates .seated-event-row {
+        grid-template-columns: 1fr;
+        gap: 0.3rem;
+        padding: 1rem 0;
     }
 }
 
